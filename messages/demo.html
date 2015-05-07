@@ -4,10 +4,70 @@
 <meta charset="UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="messages.js"></script>
-<link rel="stylesheet" type="text/css" href="messages-bw.css">
+<link rel="stylesheet" type="text/css" id="msg-style" href="messages-bw.css">
 <title>Messages Demo</title>
+<script>
+$(document).ready(function(){
+	$('#changeStyle').bind('change',function(){
+		console.log('change');
+		if($(this).val()!=''){
+			$('head link#msg-style').attr('href',$(this).val()+'.css');
+		}
+	});
+	$('textarea#initCode').text(initTextAreaText);
+	
+});
+
+function evalTextArea(){
+	try{
+		eval($.trim($('textarea#initCode').text()));
+		console.log($.trim($('textarea#initCode').text()));
+	}catch (e) {
+		Messages.addErrorMessage('Error on evaluate a textarea Init values')
+	}	
+}
+
+function bindMessage(){
+	var title = $('#title').val();
+	var body = $('#body').val();
+	var severity = $('#severity').val();
+	var messageCall = 'Messages.add'+severity+'Message(\''+body+'\', \''+title+'\');'
+	eval(messageCall);
+	$('textarea#initCode').text($('textarea#initCode').text()+'\n'+messageCall);
+}
+var initTextAreaText = '//uncoment this code to modify initial params\n//Messages.init({button:false, image:true, closeAll:true, closeAllLabel:\'Close All\', listenerWindowScroll:true, time:10000});';
+</script>
+
 </head>
 <body>
+Style:<br>
+<select id="changeStyle">
+    <option value="messages-bw">Simple black and white</option>
+    <option value="messages">Nice yellow</option>
+    <option value="messages-blue">Baby blue</option>
+    <option value="messages-jam">Jam style</option>
+</select><br>
+<fieldset>
+<legend>Compose your message  :)</legend>
 
+<input type="text" id="title" placeholder="Message title" value="Title message"/>
+<input type="text" id="body" placeholder="Message body" value="Body message"/>
+<select id="severity">
+    <option value="Info">Information</option>
+    <option value="Warn">Warning</option>
+    <option value="Error">Error</option>
+    <option value="Fatal">Fatality!! Ops! Fatal</option>
+    <option value="">None</option>
+	<input type="button" value="Go!" onclick="bindMessage();"/>
+</select>
+
+</fieldset>
+<br>
+Init values:<br>
+<textarea id="initCode" cols="55" rows="25" style="background-color: black; color: white;" >
+</textarea><br>
+<input type="button" value="Eval this" onclick="evalTextArea();"/>
+<input type="button" value="Reset this" onclick="$('textarea#initCode').text(initTextAreaText);"/>
+<br>
 </body>
 </html>
