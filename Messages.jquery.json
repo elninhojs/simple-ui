@@ -1,12 +1,12 @@
 {
   "name": "Messages",
   "title": "jQuery Messages",
-  "description": "A jump-start for jQuery plugins development.",
+  "description": "Component to show one or more messages in to user interface. On this version, 4 diferent styles are included. See the demo.html to more details.",
   "keywords": [
     "jquery-plugins",
-    "alert","messages","message","custom message","error","warn", "info", "severity messages"
+    "alert","messages","message","custom-message","error","warn", "info", "severity-messages"
   ],
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Eugênio Carlos Radaelli Filho",
     "url": "https://github.com/elninhojs"
