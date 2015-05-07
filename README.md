@@ -1,4 +1,4 @@
-simple
+JS UI solutions.
 ======
 
-Repositório para componentes
+
