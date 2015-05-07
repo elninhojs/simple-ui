@@ -1,5 +1,5 @@
 /**
- * Componente para exibição e enfileiramento de mensagens na UI.
+ * Js component to expose on ui one or more messages to the end user.
  * @author eugenio.filho
  * @date 18/09/2012
  * 
@@ -22,19 +22,22 @@ Messages.DIV_FECHAR_TODOS_HTML = '<div class="messages-div-message-item-fechar-t
 
 /**
  * options.image
- * true ou false para renderizar ou não um div 32 X 32 para receber um bgimage
+ * true or false to render or not images on message item
  * default true
  * 
  * options.button
- * Define se o btn de close será ou não renderizado na UI
+ * true or false to render or not a X button on message item
  * 
  * options.closeAll
- * Define se o botão de fechar todos será criado automaticamente na UI quando necessário. default true
+ * true or false to render or not a close all item if more then one message is visible on UI.
  * 
  * options.closeAllLabel
- * Label para o botão de close all. Default "Fechar Todos"
+ * If closeAll item is renderer, define one label for this. Default "Close All"
+ * 
+ * options.time
+ * Define in miliseconds a value time out to message item auto close. If value equal
  */
-Messages.options = {button:true, image:true, closeAll:true, closeAllLabel:'Fechar Todos', listenerWindowScroll:true, time:10000};
+Messages.options = {button:true, image:true, closeAll:true, closeAllLabel:'Close All', listenerWindowScroll:true, time:10000};
 
 Messages.updatePositionDivRoot = function(top, hide){
 	var divRoot = $('.messages-div-root');
@@ -204,32 +207,32 @@ Messages.add = function(text,title,imgDivClass){
 	
 	
 	
-};
+};	
 
 Messages.addErrorMessage=function(message, title){
 	if(!title){
-		title = 'Erro';
+		title = 'Error';
 	}
 	Messages.add(message,title,'img-error');
 };
 
 Messages.addInfoMessage=function(message, title){
 	if(!title){
-		title = 'Informação';
+		title = 'Info';
 	}
 	Messages.add(message,title,'img-info');
 };
 
 Messages.addFatalMessage=function(message, title){
 	if(!title){
-		title = 'Erro Grave';
+		title = 'Fatal Error';
 	}
 	Messages.add(message,title,'img-fatal');
 };
 
 Messages.addWarnMessage=function(message, title){
 	if(!title){
-		title = 'Aviso';
+		title = 'Warn';
 	}
 	Messages.add(message,title,'img-warn');
 };
