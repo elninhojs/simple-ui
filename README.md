@@ -47,5 +47,7 @@ After, you can use theese funcions:
 ### `Messages.addFatalMessage('Some title not required', 'Message body! Awesome!');`
 
 
+If you wish, you can configure some attributes in your page load.
 
+### `Messages.init({button:false, image:true, closeAll:true, closeAllLabel:'Close All', listenerWindowScroll:true, time:10000});`
 
