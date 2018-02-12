@@ -90,6 +90,7 @@ var initTextAreaText = '//uncoment this code to modify initial params\n//Message
 		font-family: 'Open Sans';
 		width: 95%;
 		margin: 2.5%;
+		display:block;
 		border-radius: 2pt;
 		border:solid 1px black;
 	}
@@ -109,17 +110,17 @@ var initTextAreaText = '//uncoment this code to modify initial params\n//Message
 		<option value="messages-jam">Jam style</option>
 	</select><br>
 	<fieldset>
-	<legend>Compose your message  :)</legend>
-	<input type="text" id="title" placeholder="Message title" value="Title message"/>
-	<input type="text" id="body" placeholder="Message body" value="Body message"/>
-	<select id="severity">
-		<option value="Info">Information</option>
-		<option value="Warn">Warning</option>
-		<option value="Error">Error</option>
-		<option value="Fatal">Fatality!! Ops! Fatal</option>
-		<option value="">None</option>
-		<input type="button" value="Bind your message!" onclick="bindMessage();"/>
-	</select>
+		<legend>Compose your message  :)</legend>
+		<input type="text" id="title" placeholder="Message title" value="Title message"/>
+		<input type="text" id="body" placeholder="Message body" value="Body message"/>
+		<select id="severity">
+			<option value="Info">Information</option>
+			<option value="Warn">Warning</option>
+			<option value="Error">Error</option>
+			<option value="Fatal">Fatality!! Ops! Fatal</option>
+			<option value="">None</option>
+		</select>
+		<input type="button" style="display: block;" value="Bind your message!" onclick="bindMessage();"/>
 	
 	</fieldset>
 	<br>
